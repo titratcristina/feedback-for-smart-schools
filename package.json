@@ -1,0 +1,30 @@
+{
+  "name": "smart-schools",
+  "version": "1.0.0",
+  "description": "School reviews on departments",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/titratcristina"
+  },
+  "keywords": [
+    "mongodb",
+    "express",
+    "socketio",
+    "school",
+    "reviews",
+    "api"
+  ],
+  "author": "Titrat Cristina",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "http": "0.0.0",
+    "mongoose": "^5.0.17",
+    "socketio": "^1.0.0"
+  }
+}

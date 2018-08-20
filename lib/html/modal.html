@@ -1,0 +1,62 @@
+<!-- Modalul afisat pentru a lasa feedback la departamantul selectat -->
+<div class="modal fade" id="deptModal" tabindex="-1" role="dialog" aria-labelledby="deptModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered  modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- titlul modalului -->
+                <h5 class="modal-title" id="deptModalLongTitle">{{data[selectedschool].departments[selecteddept].name}} - {{data[selectedschool].name}}</h5>
+                <!-- butonul de inchidere al modalului-->
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <!-- formularul (cu apel ajax) pentru feedback -->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Nume" id="getUserName">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <select class="form-control" id="id-element-select">
+                                      <option>Părinte</option>
+                                      <option>Elev</option>
+                                      <option>Fost elev</option>
+                                      <option>Profesor</option>
+                                      <option>Bunic</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <textarea class="form-control" rows="3" id="getcontent" placeholder="Lasă-ne mesajul tau aici!"></textarea>
+                            </div>
+                            <div class="padd">
+                                <button class="btn btn-outline-primary float-right" ng-click="postreview(selecteddept) ">Adaugă</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <!-- secțiunea din modal unde apar comentariile -->
+                        <div class="col-md-12 " ng-repeat="review in data[selectedschool].departments[selecteddept].reviews ">
+                            <div class="card mb-3 w-100">
+                                <div class="card-header">
+                                    <strong>{{review.name}} - {{review.type}} </strong>
+                                    <span class="text-muted"> {{review.time | date : 'short' }}</span>
+                                </div>
+                                <div class="card-body ">
+                                    <p class="card-text ">{{review.content}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

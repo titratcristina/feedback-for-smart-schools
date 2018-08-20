@@ -1,0 +1,47 @@
+<main role="main">
+    <!--  secțiunea de introducere cu un text informativ  -->
+    <section class="jumbotron text-center intro">
+        <div class="box-light">
+            <h1 class="display-4">Schimbarea începe cu o idee</h1>
+            <p class="lead">Ai o sugestie, o reclamație sau doar dorești să ne împărtășești din experiența ta? <br> Ai venit în locul perfect! Alege liceul, apoi secțiunea unde s-ar încadra comentariul tău și fii cât mai sincer. Vrem să construim viitorul și nu putem face asta fără tine, avem nevoie permanent de feedbackul tău.</p>
+        </div>
+    </section>
+
+    <!-- secțiunea unde sunt cardurile cu liceele -->
+    <div class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <form class="form-inline my-2 my-lg-0 padd">
+                        <!-- câmpul pentru căutarea liceului -->
+                        <input class="form-control mr-sm-2" type="search" placeholder="Caută liceul tău..." aria-label="Search" ng-model='searchText'>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="card-columns">
+                    <!-- repetarea cardurilor în funcție de obiectele din baza de date filtrarea rezultatelor în funcție de căutare -->
+                    <div ng-repeat="school in data | filter:searchText">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" ng-src="{{school.img}}" alt="HighSchool image">
+                            <div class="card-body">
+                                <h5 class="card-title">{{school.name}}</h5>
+                                <p class="card-text">{{school.description}} <a ng-href="{{school.url}}" ng-if="school.url" target="_blank">Pagina Liceului</a></p>
+                                <div class="dropdown">
+                                    <!-- dropdown cu departamentele/secțiunile unde utilizatorii pot adăuga comentarii -->
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lasă-ne...</button>
+                                    <div class="dropdown-menu " aria-labelledby="dropdownMenu2">
+                                        <!-- selectarea departamentului va deschide un modal pentru a lasa feedback -->
+                                        <button class="dropdown-item" type="button" ng-repeat="dept in school.departments" ng-click="open($parent.$index,$index)">{{dept.name}}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<modal></modal>
