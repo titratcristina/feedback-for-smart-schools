@@ -22,7 +22,7 @@
                 <div class="card-columns">
                     <!-- repetarea cardurilor în funcție de obiectele din baza de date filtrarea rezultatelor în funcție de căutare -->
                     <div ng-repeat="school in data | filter:searchText">
-                        <div class="card mb-4 box-shadow">
+                        <div class="card card-liceu mb-4 box-shadow">
                             <img class="card-img-top" ng-src="{{school.img}}" alt="HighSchool image">
                             <div class="card-body">
                                 <h5 class="card-title">{{school.name}}</h5>
